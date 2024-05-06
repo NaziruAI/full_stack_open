@@ -9,18 +9,26 @@ const Header = (props) => {
   )
 }
 
+
+
 // Content component 
-const Content = (props) => {
-  console.log(props)
+const Content = ({part1, part2, part3, exercises1, exercises2, exercises3}) => {
   return(
     <>
       <p>
-        {props.parts} {props.exercises}
+        {part1} {exercises1}
+      </p>
+      <p>
+        {part2} {exercises2}
+      </p>
+      <p>
+        {part3} {exercises3}
       </p>
     </>
   )
 }
 
+// Total component 
 const Total = (props)=>{
   return(
     <>
@@ -31,6 +39,7 @@ const Total = (props)=>{
   )
 }
 
+// the root component App
 const App = () => {
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
@@ -43,13 +52,15 @@ const App = () => {
   return (
     <div>
       <Header course={course} />
+      <Content 
+        part1={part1} exercises1={exercises1} 
+        part2={part2} exercises2={exercises2} 
+        part3={part3} exercises3={exercises3} 
       
-      <Content parts={part1} exercises={exercises1} />
-      <Content parts={part2} exercises={exercises2} />
-      <Content parts={part3} exercises={exercises3} />
+      />
+
       <Total exercises={exercises1 + exercises2 + exercises3}/>
      
-      {/* <p>Number of exercises {exercises1 + exercises2 + exercises3}</p> */}
     </div>
   )
 }
